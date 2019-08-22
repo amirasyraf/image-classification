@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block content %}
+
+<h2>Vehicle Recognition trained with TensorFlow + Keras</h2>
+<div>
+    <hr>
+    <h4>Hello there.</h4>
+    <br>
+    <p>This web app accepts any image file and tries to make predictions based on model trained with 1285 images across 4 classes.</p>
+    <p>The 4 classes are:</p>
+    <ul>
+        <li>Aircraft</li>
+        <li>Car</li>
+        <li>Motorcycle</li>
+        <li>Truck</li>
+    </ul>
+    <hr>
+</div>
+
+<div>
+    <form id="upload-file" method="post" enctype="multipart/form-data">
+        <h4>Make Prediction</h4>
+        <br>
+        <label for="imageUpload" class="upload-label">
+            Load Image...
+        </label>
+        <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
+    </form>
+
+    <div class="image-section" style="display:none;">
+        <div class="img-preview">
+            <div id="imagePreview">
+            </div>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary btn-lg " id="btn-predict">Predict!</button>
+        </div>
+    </div>
+
+    <div class="loader" style="display:none;"></div>
+
+    <div>
+        <h3 id="result"></h3>
+        <p id="result-data"></p>
+    </div>
+
+</div>
+
+{% endblock %}
